@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://entities/station/Station.tscn" type="PackedScene" id=1]
 [ext_resource path="res://entities/crew/Crew.tscn" type="PackedScene" id=2]
 [ext_resource path="res://entities/ship/Ship.gd" type="Script" id=3]
+[ext_resource path="res://assets/sprites/player_green.png" type="Texture" id=4]
+[ext_resource path="res://assets/sprites/player_blue.png" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/player_red.png" type="Texture" id=6]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -38,10 +41,25 @@ station_id = 4
 position = Vector2( -208.644, -2.21964 )
 crewmember = 1
 
+[node name="Sprite" parent="Crew_Members/Crew1/Area2D" index="2"]
+texture = ExtResource( 5 )
+
 [node name="Crew2" parent="Crew_Members" instance=ExtResource( 2 )]
 position = Vector2( -246.932, -4.99414 )
 crewmember = 2
 
+[node name="Sprite" parent="Crew_Members/Crew2/Area2D" index="2"]
+texture = ExtResource( 4 )
+
 [node name="Crew3" parent="Crew_Members" instance=ExtResource( 2 )]
 position = Vector2( -284.111, -5.54904 )
 crewmember = 3
+
+[node name="Sprite" parent="Crew_Members/Crew3/Area2D" index="2"]
+texture = ExtResource( 6 )
+
+[editable path="Crew_Members/Crew1"]
+
+[editable path="Crew_Members/Crew2"]
+
+[editable path="Crew_Members/Crew3"]
