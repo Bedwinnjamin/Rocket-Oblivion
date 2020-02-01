@@ -1,8 +1,11 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Station.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Crew.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Ship.gd" type="Script" id=3]
+[ext_resource path="res://entities/station/Station.tscn" type="PackedScene" id=1]
+[ext_resource path="res://entities/crew/Crew.tscn" type="PackedScene" id=2]
+[ext_resource path="res://entities/ship/Ship.gd" type="Script" id=3]
+
+
+
 
 [sub_resource type="CubeMesh" id=1]
 
