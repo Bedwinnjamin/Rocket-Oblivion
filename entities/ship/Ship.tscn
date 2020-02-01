@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://entities/station/Station.tscn" type="PackedScene" id=1]
 [ext_resource path="res://entities/crew/Crew.tscn" type="PackedScene" id=2]
 [ext_resource path="res://entities/ship/Ship.gd" type="Script" id=3]
 [ext_resource path="res://assets/sprites/player_green.png" type="Texture" id=4]
-[ext_resource path="res://assets/sprites/player_blue.png" type="Texture" id=5]
 [ext_resource path="res://assets/sprites/player_red.png" type="Texture" id=6]
 
 [sub_resource type="CubeMesh" id=1]
@@ -14,45 +13,58 @@ script = ExtResource( 3 )
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="."]
 modulate = Color( 0.568627, 0.188235, 0.188235, 1 )
-scale = Vector2( 300, 500 )
+scale = Vector2( 200, 400 )
 mesh = SubResource( 1 )
 
 [node name="Stations" type="Node2D" parent="."]
 
 [node name="Station1" parent="Stations" instance=ExtResource( 1 )]
-position = Vector2( -252.594, 168.593 )
+position = Vector2( -145, -375 )
+rotation = 3.14159
 station_id = 1
 
 [node name="Station2" parent="Stations" instance=ExtResource( 1 )]
-position = Vector2( -255.8, -250.127 )
+position = Vector2( 145, -275 )
 station_id = 2
 
 [node name="Station3" parent="Stations" instance=ExtResource( 1 )]
-position = Vector2( 245.2, -240.636 )
+position = Vector2( -145, -160 )
+rotation = 3.14159
 station_id = 3
 
 [node name="Station4" parent="Stations" instance=ExtResource( 1 )]
-position = Vector2( 239.81, 177.751 )
+position = Vector2( 145, -30 )
 station_id = 4
+
+[node name="Station5" parent="Stations" instance=ExtResource( 1 )]
+position = Vector2( -145, 105 )
+rotation = 3.14159
+station_id = 5
+
+[node name="Station6" parent="Stations" instance=ExtResource( 1 )]
+position = Vector2( 145, 240 )
+station_id = 6
+
+[node name="Station7" parent="Stations" instance=ExtResource( 1 )]
+position = Vector2( -145, 375 )
+rotation = 3.14159
+station_id = 7
 
 [node name="Crew_Members" type="Node2D" parent="."]
 
 [node name="Crew1" parent="Crew_Members" instance=ExtResource( 2 )]
-position = Vector2( -208.644, -2.21964 )
+position = Vector2( 133.597, -35.1549 )
 crewmember = 1
 
-[node name="Sprite" parent="Crew_Members/Crew1/Area2D" index="2"]
-texture = ExtResource( 5 )
-
 [node name="Crew2" parent="Crew_Members" instance=ExtResource( 2 )]
-position = Vector2( -246.932, -4.99414 )
+position = Vector2( -130.942, -161.079 )
 crewmember = 2
 
 [node name="Sprite" parent="Crew_Members/Crew2/Area2D" index="2"]
 texture = ExtResource( 4 )
 
 [node name="Crew3" parent="Crew_Members" instance=ExtResource( 2 )]
-position = Vector2( -284.111, -5.54904 )
+position = Vector2( -133.754, 375.355 )
 crewmember = 3
 
 [node name="Sprite" parent="Crew_Members/Crew3/Area2D" index="2"]

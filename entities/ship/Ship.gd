@@ -2,7 +2,7 @@ extends Node2D
 
 signal deselect
 
-
+var crew_stations = [-1,-1,-1]
 var selected_crew
 
 # Called when the node enters the scene tree for the first time.
@@ -31,7 +31,7 @@ func _selected(current_node):
 		if selected_crew == null:
 			pass
 		elif selected_crew.station != current_node.station_id:
-			selected_crew._go_to_station(current_node.position)
+			selected_crew._go_to_station(current_node.position, current_node.station_id)
 			selected_crew = null
 		else:
 			pass
