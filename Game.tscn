@@ -6,11 +6,10 @@
 [node name="Game" type="Node"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-visible = false
 anchor_mode = 0
 
 [node name="Ship" parent="." instance=ExtResource( 1 )]
-position = Vector2( 514.761, 283.687 )
+position = Vector2( 918.63, 526.939 )
 
 [node name="UI" parent="." instance=ExtResource( 2 )]
 visible = false
