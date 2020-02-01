@@ -4,9 +4,6 @@
 [ext_resource path="res://entities/crew/Crew.tscn" type="PackedScene" id=2]
 [ext_resource path="res://entities/ship/Ship.gd" type="Script" id=3]
 
-
-
-
 [sub_resource type="CubeMesh" id=1]
 
 [node name="Ship" type="Node2D"]
@@ -35,12 +32,16 @@ crewmember = 3
 
 [node name="Station1" parent="Stations" instance=ExtResource( 1 )]
 position = Vector2( -252.594, 168.593 )
+station_id = 1
 
 [node name="Station2" parent="Stations" instance=ExtResource( 1 )]
 position = Vector2( -255.8, -250.127 )
+station_id = 2
 
 [node name="Station3" parent="Stations" instance=ExtResource( 1 )]
 position = Vector2( 245.2, -240.636 )
+station_id = 3
 
 [node name="Station4" parent="Stations" instance=ExtResource( 1 )]
 position = Vector2( 239.81, 177.751 )
+station_id = 4

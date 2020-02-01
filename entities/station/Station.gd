@@ -8,9 +8,12 @@ func _ready():
 	#$Crew.connect("start_work", self, "_start_work")
 	#$Crew.connect("stop_work", self, "_stop_work")
 
-func _start_work(worked_id):
-	if station_id == worked_id
-	is_working = true
+func _start_work(id):
+	if station_id == id:
+		is_working = true
+		print("I am Working: Station - " + str(station_id))
 	
-func _stop_work(station_id):
-	is_working = false
+	
+func _stop_work(id):
+	if station_id == id:
+		is_working = false
