@@ -14,20 +14,6 @@ modulate = Color( 0.568627, 0.188235, 0.188235, 1 )
 scale = Vector2( 300, 500 )
 mesh = SubResource( 1 )
 
-[node name="Crew_Members" type="Node2D" parent="."]
-
-[node name="Crew1" parent="Crew_Members" instance=ExtResource( 2 )]
-position = Vector2( -208.644, -2.21964 )
-crewmember = 1
-
-[node name="Crew2" parent="Crew_Members" instance=ExtResource( 2 )]
-position = Vector2( -246.932, -4.99414 )
-crewmember = 2
-
-[node name="Crew3" parent="Crew_Members" instance=ExtResource( 2 )]
-position = Vector2( -284.111, -5.54904 )
-crewmember = 3
-
 [node name="Stations" type="Node2D" parent="."]
 
 [node name="Station1" parent="Stations" instance=ExtResource( 1 )]
@@ -45,3 +31,17 @@ station_id = 3
 [node name="Station4" parent="Stations" instance=ExtResource( 1 )]
 position = Vector2( 239.81, 177.751 )
 station_id = 4
+
+[node name="Crew_Members" type="Node2D" parent="."]
+
+[node name="Crew1" parent="Crew_Members" instance=ExtResource( 2 )]
+position = Vector2( -208.644, -2.21964 )
+crewmember = 1
+
+[node name="Crew2" parent="Crew_Members" instance=ExtResource( 2 )]
+position = Vector2( -246.932, -4.99414 )
+crewmember = 2
+
+[node name="Crew3" parent="Crew_Members" instance=ExtResource( 2 )]
+position = Vector2( -284.111, -5.54904 )
+crewmember = 3

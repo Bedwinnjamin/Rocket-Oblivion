@@ -1,9 +1,9 @@
 extends Node2D
 
 signal deselect
-signal selected
 
-var selected_crew = null
+
+var selected_crew
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,20 +23,25 @@ func _ready():
 		s.connect("selected", self, "_selected")
 
 func _selected(current_node):
-	print("current_node")
+	print(current_node)
 	if current_node.is_in_group("crew"):
 		selected_crew = current_node
 		print("Selected Crew: " + str(current_node.crewmember))
 	elif current_node.is_in_group("station"):
 		if selected_crew == null:
 			pass
-		else:
+		elif selected_crew.station != current_node.station_id:
 			selected_crew._go_to_station(current_node.position)
+			selected_crew = null
+		else:
+			pass
+	else:
+		pass
 
 # Move an Area 2D to where the mouse is and determine if you're not clicking an object
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == BUTTON_RIGHT and event.pressed:
-		emit_signal("deselect")
+		#emit_signal("deselect")
 		selected_crew = null
 		
 
