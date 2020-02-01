@@ -15,3 +15,7 @@ visible = false
 
 [node name="Ship" parent="." instance=ExtResource( 1 )]
 position = Vector2( 918.63, 526.939 )
+
+[node name="Generate" type="Timer" parent="."]
+autostart = true
+[connection signal="timeout" from="Generate" to="." method="_on_Generate_timeout"]

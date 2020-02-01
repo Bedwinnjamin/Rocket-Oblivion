@@ -6,7 +6,7 @@ signal selected
 
 export (int) var crewmember
 
-var speed = .1
+var speed = .5
 var station = -1
 var is_moving = false
 var destX
@@ -36,7 +36,7 @@ func _go_to_station(station_position, station_id):
 #			pass
 	print(station_position)
 
-func _process(delta):
+func _physics_process(delta):
 	
 	if (is_moving):
 		# If not on correct floor, move to ladder
@@ -49,7 +49,7 @@ func _process(delta):
 			_move_toward_dest()
 		else:
 			is_moving = false
-			_work_station()
+			emit_signal("start_work", station)
 			
 	pass
 
