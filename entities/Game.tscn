@@ -11,11 +11,20 @@ script = ExtResource( 3 )
 anchor_mode = 0
 
 [node name="UI" parent="." instance=ExtResource( 2 )]
-visible = false
+margin_left = 3.89606
+margin_top = -1.94812
+margin_right = 3.896
+margin_bottom = -1.94812
+mouse_filter = 2
 
 [node name="Ship" parent="." instance=ExtResource( 1 )]
 position = Vector2( 918.63, 526.939 )
 
 [node name="Generate" type="Timer" parent="."]
 autostart = true
+
+[node name="Hull_Damage" type="Timer" parent="."]
+wait_time = 3.2
+autostart = true
 [connection signal="timeout" from="Generate" to="." method="_on_Generate_timeout"]
+[connection signal="timeout" from="Hull_Damage" to="." method="_on_Hull_Damage_timeout"]
