@@ -1,9 +1,10 @@
 extends Node2D
 
-signal deselect
+#signal deselect
 
 var crew_stations = [-1,-1,-1]
 var selected_crew
+var error
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,13 +14,13 @@ func _ready():
 	
 	# Connect each Crew member to stations
 	for c in crews:
-		self.connect("deselect", c, "_deselect")
+		#error = self.connect("deselect", c, "_deselect")
 		c.connect("selected", self, "_selected")
 		for s in stations:
 			c.connect("start_work", s, "_start_work")
 			c.connect("stop_work", s, "_stop_work")
 	for s in stations:
-		self.connect("deselect", s, "_deselect")
+		#error = self.connect("deselect", s, "_deselect")
 		s.connect("selected", self, "_selected")
 
 func _selected(current_node):
@@ -49,6 +50,6 @@ func _input(event):
 #	$Crew_Members/Crew1.connect("stop_work", $Stations/Station1, "_stop_work")
 
 
-func _on_Deselect_input_event(viewport, event, shape_idx):
+func _on_Deselect_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:
 		print("deselect")

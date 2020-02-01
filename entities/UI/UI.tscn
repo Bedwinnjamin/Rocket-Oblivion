@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://entities/UI/UI.gd" type="Script" id=1]
+[ext_resource path="res://entities/UI/Bar.gd" type="Script" id=2]
 
 [node name="UI" type="Control"]
 anchor_right = 1.0
@@ -11,14 +12,94 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_left = 348.378
+margin_top = 414.506
+margin_right = 570.7
+margin_bottom = 653.282
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ProgressBar" type="ProgressBar" parent="HBoxContainer"]
-margin_right = 4.0
+[node name="Left_Ship" type="VBoxContainer" parent="MarginContainer"]
+margin_right = 222.0
+margin_bottom = 238.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Oxygen" type="ProgressBar" parent="MarginContainer/Left_Ship" groups=[
+"bar",
+]]
+margin_right = 222.0
 margin_bottom = 14.0
+script = ExtResource( 2 )
+
+[node name="Shields" type="ProgressBar" parent="MarginContainer/Left_Ship" groups=[
+"bar",
+]]
+margin_top = 18.0
+margin_right = 222.0
+margin_bottom = 32.0
+script = ExtResource( 2 )
+bar_id = 1
+
+[node name="Hull" type="ProgressBar" parent="MarginContainer/Left_Ship" groups=[
+"bar",
+]]
+margin_top = 36.0
+margin_right = 222.0
+margin_bottom = 50.0
+script = ExtResource( 2 )
+bar_id = 2
+
+[node name="Fuel" type="ProgressBar" parent="MarginContainer/Left_Ship" groups=[
+"bar",
+]]
+margin_top = 54.0
+margin_right = 222.0
+margin_bottom = 68.0
+script = ExtResource( 2 )
+bar_id = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+margin_left = 1293.58
+margin_top = 430.248
+margin_right = 1594.8
+margin_bottom = 642.198
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Right_Ship" type="VBoxContainer" parent="MarginContainer2"]
+margin_right = 301.0
+margin_bottom = 211.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Galaxy" type="ProgressBar" parent="MarginContainer2/Right_Ship" groups=[
+"bar",
+]]
+margin_right = 301.0
+margin_bottom = 14.0
+script = ExtResource( 2 )
+bar_id = 4
+
+[node name="Plants" type="ProgressBar" parent="MarginContainer2/Right_Ship" groups=[
+"bar",
+]]
+margin_top = 18.0
+margin_right = 301.0
+margin_bottom = 32.0
+script = ExtResource( 2 )
+bar_id = 5
+
+[node name="Radiation" type="ProgressBar" parent="MarginContainer2/Right_Ship" groups=[
+"bar",
+]]
+margin_top = 36.0
+margin_right = 301.0
+margin_bottom = 50.0
+script = ExtResource( 2 )
+bar_id = 6

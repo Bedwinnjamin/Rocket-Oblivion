@@ -18,60 +18,56 @@ mesh = SubResource( 1 )
 
 [node name="Stations" type="Node2D" parent="."]
 
-[node name="Station1" parent="Stations" instance=ExtResource( 1 )]
+[node name="Station0" parent="Stations" instance=ExtResource( 1 )]
 position = Vector2( -145, -375 )
 rotation = 3.14159
+
+[node name="Station1" parent="Stations" instance=ExtResource( 1 )]
+position = Vector2( -145, -160 )
+rotation = -3.14159
 station_id = 1
 
 [node name="Station2" parent="Stations" instance=ExtResource( 1 )]
-position = Vector2( 145, -275 )
+position = Vector2( -145, 105 )
+rotation = -3.14159
 station_id = 2
 
 [node name="Station3" parent="Stations" instance=ExtResource( 1 )]
-position = Vector2( -145, -160 )
-rotation = 3.14159
+position = Vector2( -145, 375 )
+rotation = -3.14159
 station_id = 3
 
 [node name="Station4" parent="Stations" instance=ExtResource( 1 )]
-position = Vector2( 145, -30 )
+position = Vector2( 145, -275 )
 station_id = 4
 
 [node name="Station5" parent="Stations" instance=ExtResource( 1 )]
-position = Vector2( -145, 105 )
-rotation = 3.14159
+position = Vector2( 145, -30 )
 station_id = 5
 
 [node name="Station6" parent="Stations" instance=ExtResource( 1 )]
-position = Vector2( 145, 240 )
+position = Vector2( 146.432, 238.568 )
 station_id = 6
-
-[node name="Station7" parent="Stations" instance=ExtResource( 1 )]
-position = Vector2( -145, 375 )
-rotation = 3.14159
-station_id = 7
 
 [node name="Crew_Members" type="Node2D" parent="."]
 
-[node name="Crew1" parent="Crew_Members" instance=ExtResource( 2 )]
+[node name="Crew0" parent="Crew_Members" instance=ExtResource( 2 )]
 position = Vector2( 133.597, -35.1549 )
+
+[node name="Crew1" parent="Crew_Members" instance=ExtResource( 2 )]
+position = Vector2( -130.942, -161.079 )
 crewmember = 1
 
-[node name="Crew2" parent="Crew_Members" instance=ExtResource( 2 )]
-position = Vector2( -130.942, -161.079 )
-crewmember = 2
-
-[node name="Sprite" parent="Crew_Members/Crew2/Area2D" index="2"]
+[node name="Sprite" parent="Crew_Members/Crew1" index="0"]
 texture = ExtResource( 4 )
 
-[node name="Crew3" parent="Crew_Members" instance=ExtResource( 2 )]
+[node name="Crew2" parent="Crew_Members" instance=ExtResource( 2 )]
 position = Vector2( -133.754, 375.355 )
-crewmember = 3
+crewmember = 2
 
-[node name="Sprite" parent="Crew_Members/Crew3/Area2D" index="2"]
+[node name="Sprite" parent="Crew_Members/Crew2" index="0"]
 texture = ExtResource( 6 )
 
 [editable path="Crew_Members/Crew1"]
 
 [editable path="Crew_Members/Crew2"]
-
-[editable path="Crew_Members/Crew3"]

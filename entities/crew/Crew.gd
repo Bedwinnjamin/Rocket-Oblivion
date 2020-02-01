@@ -6,7 +6,7 @@ signal selected
 
 export (int) var crewmember
 
-var speed = .5
+var speed = 1
 var station = -1
 var is_moving = false
 var destX
@@ -23,23 +23,15 @@ func _leaving_station():
 	emit_signal("stop_work", station)
 
 func _go_to_station(station_position, station_id):
-	
+	emit_signal("stop_work", station)
 	station = station_id
 	destX = station_position[0]
 	destY = station_position[1]
 	is_moving = true
-#	self.position = station_position
-#	# Check if we're not on the right floor
-#	if (self.position[0] != station_position[1]):
-#		# Check if we're not on the ladder
-#		if (self.position[1] != 150):
-#			pass
-	print(station_position)
+	#print(station_position)
 
-func _physics_process(delta):
-	
+func _physics_process(_delta):
 	if (is_moving):
-		# If not on correct floor, move to ladder
 		if (self.position[1] != destY):
 			if self.position[0] != 0:
 				_move_toward_ladder()
@@ -78,11 +70,7 @@ func _move_toward_dest():
 		self.position[0] = destX
 
 # Check to see if the crew is LEFT CLICKED
-func _on_Area2D_input_event(viewport, event, shape_idx):
+func _on_Area2D_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:
 		emit_signal("selected", self)
 		print("Crew Selected")
-
-# You are entering
-func _on_Area2D_area_entered(area):
-	pass # Replace with function body.
