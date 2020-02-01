@@ -22,12 +22,18 @@ func leaving_station():
 	# start walking to next station
 	#station = next_station
 
-func _input_event(viewport, event, shape_idx):
-	if event.type == InputEvent.MOUSE_BUTTON \
-	and event.button_index == BUTTON_LEFT \
-	and event.pressed:
-		print("Clicked")
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+
+func _on_Crew3_start_work():
+	pass # Replace with function body.
+
+
+func _on_Area2D_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:
+		leaving_station()
+		print("Clicked")
+		#station = new_station
+		work_station()
