@@ -48,7 +48,8 @@ func _physics_process(_delta):
 func _input(event):
 	if(event.is_pressed()):
 		if(Input.is_key_pressed(KEY_ESCAPE)):
-			get_tree().quit()
+			$PauseMenu.show()
+			get_tree().paused = true
 
 func _lose():
 	#get_tree().quit()
