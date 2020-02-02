@@ -6,19 +6,19 @@ signal working_status
 export (int) var station_id
 
 
-func _ready():
-	pass
-
-
 func _start_work(id, crew):
 	if station_id == id:
 		emit_signal("working_status", station_id, true, crew)
+		$On.show()
+		$Off.hide()
 		#print("I am Working: Station - " + str(station_id))
 
 
 func _stop_work(id, crew):
 	if station_id == id:
 		emit_signal("working_status", station_id, false, crew)
+		$On.hide()
+		$Off.show()
 
 
 func _on_Area2D_input_event(_viewport, event, _shape_idx):

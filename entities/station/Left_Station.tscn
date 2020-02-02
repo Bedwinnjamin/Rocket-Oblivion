@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://entities/station/Station.gd" type="Script" id=1]
-[ext_resource path="res://assets/sprites/Ship_stuff/Terminal-01.svg" type="Texture" id=2]
+[ext_resource path="res://assets/sprites/Ship_stuff/Terminal_OFF-01.svg" type="Texture" id=2]
 [ext_resource path="res://assets/sprites/Ship_stuff/FloorBoard.svg" type="Texture" id=3]
 [ext_resource path="res://assets/sprites/Ship_stuff/Terminal_ON-01.svg" type="Texture" id=4]
 
@@ -13,14 +13,16 @@ extents = Vector2( 34.5012, 63.2342 )
 ]]
 script = ExtResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Off" type="Sprite" parent="."]
 position = Vector2( -59.6403, 2.32133 )
 texture = ExtResource( 2 )
 flip_h = true
 
-[node name="Sprite3" type="Sprite" parent="."]
+[node name="On" type="Sprite" parent="."]
 visible = false
+position = Vector2( -59.1552, 2.4128 )
 texture = ExtResource( 4 )
+flip_h = true
 
 [node name="Sprite2" type="Sprite" parent="."]
 position = Vector2( 0, 63 )

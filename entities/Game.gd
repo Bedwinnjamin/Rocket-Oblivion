@@ -53,7 +53,7 @@ func _process(_delta):
 	if(Galaxy!=0):
 		if(resources[4]>=Galaxy and resources[5]>=Plants and resources[6]>=Radiation):
 			_mission_done()
-		
+	$Console._update_clock(str(floor($Mission.time_left)))
 	time_now = OS.get_unix_time()
 	elapsed = time_now - time_start
 	minutes = elapsed / 60
@@ -125,8 +125,9 @@ func _generate_mission():
 	$Console._show_message(message)
 	message = (str(Radiation) + " Radiation")
 	$Console._show_message(message)
-	message = ("You have 60 seconds, chop chop!")
+	message = ("You have 45 seconds, chop chop!")
 	$Console._show_message(message)
+	$Mission.start()
 
 func _mission_done():
 	Galaxy = 0

@@ -15,7 +15,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Game Jam Game"
+config/name="Rocket Oblivion"
 run/main_scene="res://entities/MainMenu.tscn"
 config/icon="res://icon.png"
 
