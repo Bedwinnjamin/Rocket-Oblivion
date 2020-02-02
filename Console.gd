@@ -1,21 +1,11 @@
 extends Node2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$RichTextLabel.set_scroll_follow(true)
 
 func _show_message(message):
-	$RichTextLabel.text = message
+	$RichTextLabel.text += message + '\n'
 	
 func _clear_message(message):
 	$RichTextLabel.text = ""
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass

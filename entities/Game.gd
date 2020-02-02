@@ -34,7 +34,7 @@ func _ready():
 		i+=1
 	
 	var message = "Hello and welcome to Spaceship Simulator. Use your crew of expert astronauts to keep the ship flying with the stations on the left."
-	$UI/Console._show_message(message)
+	$Console._show_message(message)
 
 func _process(_delta):
 	for i in range(0, 3):
@@ -60,6 +60,7 @@ func _lose():
 
 
 func _station_working(station_id,status,crew):
+	$Console._show_message("working station " +  String(station_id))
 	working_stations[station_id] = status
 	$JukeBox.insert_coin(station_id,status,crew)
 
