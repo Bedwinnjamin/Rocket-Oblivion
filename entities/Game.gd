@@ -56,8 +56,9 @@ func _lose():
 	pass
 
 
-func _station_working(station_id,status):
+func _station_working(station_id,status,crew):
 	working_stations[station_id] = status
+	$JukeBox.insert_coin(station_id,status,crew)
 
 func _on_Generate_timeout():
 	# Fuel Constantly decreases

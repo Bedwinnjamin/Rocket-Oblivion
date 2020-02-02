@@ -16,14 +16,8 @@ var destY
 func _ready():
 	pass
 
-func _work_station():
-	emit_signal("start_work", station)
-
-func _leaving_station():
-	emit_signal("stop_work", station)
-
 func _go_to_station(station_position, station_id):
-	emit_signal("stop_work", station)
+	emit_signal("stop_work", station, crew_id)
 	station = station_id
 	destX = station_position[0]
 	destY = station_position[1]
@@ -63,7 +57,7 @@ func _physics_process(_delta):
 			$Stand.visible = true
 			$Walk.visible = false
 			$Climb.visible = false
-			emit_signal("start_work", station)
+			emit_signal("start_work", station, crew_id)
 			
 	pass
 

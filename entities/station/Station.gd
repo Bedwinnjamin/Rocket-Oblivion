@@ -10,15 +10,15 @@ func _ready():
 	pass
 
 
-func _start_work(id):
+func _start_work(id, crew):
 	if station_id == id:
-		emit_signal("working_status", station_id, true)
+		emit_signal("working_status", station_id, true, crew)
 		#print("I am Working: Station - " + str(station_id))
 
 
-func _stop_work(id):
+func _stop_work(id, crew):
 	if station_id == id:
-		emit_signal("working_status", station_id, false)
+		emit_signal("working_status", station_id, false, crew)
 
 
 func _on_Area2D_input_event(_viewport, event, _shape_idx):

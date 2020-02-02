@@ -1,31 +1,67 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://entities/Station_Music.gd" type="Script" id=1]
-[ext_resource path="res://entities/Station_music.gd" type="Script" id=2]
 [ext_resource path="res://assets/music/base.ogg" type="AudioStream" id=3]
+[ext_resource path="res://entities/JukeBox.gd" type="Script" id=4]
 
 [node name="JukeBox" type="Node"]
+script = ExtResource( 4 )
 
 [node name="Station0" type="AudioStreamPlayer" parent="."]
 script = ExtResource( 1 )
+station_song0 = "res://assets/music/Ox 1.ogg"
+station_song1 = "res://assets/music/Ox 2.ogg"
+station_song2 = "res://assets/music/Ox 3.ogg"
+
+[node name="Tween" type="Tween" parent="Station0"]
 
 [node name="Station1" type="AudioStreamPlayer" parent="."]
-script = ExtResource( 2 )
+script = ExtResource( 1 )
+station_song0 = "res://assets/music/Sh 1.ogg"
+station_song1 = "res://assets/music/Sh 2.ogg"
+station_song2 = "res://assets/music/Sh 3.ogg"
+
+[node name="Tween" type="Tween" parent="Station1"]
 
 [node name="Station2" type="AudioStreamPlayer" parent="."]
 script = ExtResource( 1 )
+station_song0 = "res://assets/music/Hull 1.ogg"
+station_song1 = "res://assets/music/Hull 2.ogg"
+station_song2 = "res://assets/music/Hull 3.ogg"
+
+[node name="Tween" type="Tween" parent="Station2"]
 
 [node name="Station3" type="AudioStreamPlayer" parent="."]
 script = ExtResource( 1 )
+station_song0 = "res://assets/music/Eng 1.ogg"
+station_song1 = "res://assets/music/Eng 2.ogg"
+station_song2 = "res://assets/music/Eng 3.ogg"
+
+[node name="Tween" type="Tween" parent="Station3"]
 
 [node name="Station4" type="AudioStreamPlayer" parent="."]
 script = ExtResource( 1 )
+station_song0 = "res://assets/music/Gal 1.ogg"
+station_song1 = "res://assets/music/Gal 2.ogg"
+station_song2 = "res://assets/music/Gal 3.ogg"
+
+[node name="Tween" type="Tween" parent="Station4"]
 
 [node name="Station5" type="AudioStreamPlayer" parent="."]
 script = ExtResource( 1 )
+station_song0 = "res://assets/music/Plant 1.ogg"
+station_song1 = "res://assets/music/Plant 2.ogg"
+station_song2 = "res://assets/music/Plant 3.ogg"
+
+[node name="Tween" type="Tween" parent="Station5"]
 
 [node name="Station6" type="AudioStreamPlayer" parent="."]
 script = ExtResource( 1 )
+station_song0 = "res://assets/music/Rad 1.ogg"
+station_song1 = "res://assets/music/Rad 2.ogg"
+station_song2 = "res://assets/music/Rad 3.ogg"
+
+[node name="Tween" type="Tween" parent="Station6"]
 
 [node name="Ship" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )

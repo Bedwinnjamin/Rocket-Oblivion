@@ -51,10 +51,7 @@ func _input(event):
 		#emit_signal("deselect")
 		selected_crew = null
 		
-
-#	$Crew_Members/Crew1.connect("start_work", $Stations/Station1, "_start_work")
-#	$Crew_Members/Crew1.connect("stop_work", $Stations/Station1, "_stop_work")
-
+		
 
 func _on_Deselect_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:
