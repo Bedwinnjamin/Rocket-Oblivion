@@ -14,15 +14,15 @@ anchor_mode = 0
 current = true
 zoom = Vector2( 1.1, 1.1 )
 
+[node name="Ship" parent="." instance=ExtResource( 1 )]
+position = Vector2( 918.63, 526.939 )
+
 [node name="UI" parent="." instance=ExtResource( 2 )]
 margin_left = 3.89606
 margin_top = -1.94812
 margin_right = 3.896
 margin_bottom = -1.94812
 mouse_filter = 2
-
-[node name="Ship" parent="." instance=ExtResource( 1 )]
-position = Vector2( 918.63, 526.939 )
 
 [node name="Generate" type="Timer" parent="."]
 autostart = true

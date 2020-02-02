@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://entities/UI/UI.gd" type="Script" id=1]
-[ext_resource path="res://entities/UI/Bar.gd" type="Script" id=2]
+[ext_resource path="res://entities/UI/Bar.tscn" type="PackedScene" id=3]
 
 [node name="UI" type="Control"]
 anchor_right = 1.0
@@ -13,93 +13,85 @@ __meta__ = {
 }
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-margin_left = 348.378
-margin_top = 414.506
-margin_right = 570.7
-margin_bottom = 653.282
+margin_left = 403.0
+margin_top = 79.0
+margin_right = 653.0
+margin_bottom = 998.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Left_Ship" type="VBoxContainer" parent="MarginContainer"]
-margin_right = 222.0
-margin_bottom = 238.0
+margin_right = 250.0
+margin_bottom = 919.0
+size_flags_vertical = 5
+custom_constants/separation = 20
+alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Oxygen" type="ProgressBar" parent="MarginContainer/Left_Ship" groups=[
-"bar",
-]]
-margin_right = 222.0
-margin_bottom = 14.0
-script = ExtResource( 2 )
+[node name="Oxygen2" parent="MarginContainer/Left_Ship" instance=ExtResource( 3 )]
+margin_top = 83.0
+margin_bottom = 130.0
+size_flags_vertical = 6
+bar_name = "Oxygen"
 
-[node name="Shields" type="ProgressBar" parent="MarginContainer/Left_Ship" groups=[
-"bar",
-]]
-margin_top = 18.0
-margin_right = 222.0
-margin_bottom = 32.0
-script = ExtResource( 2 )
+[node name="Shields" parent="MarginContainer/Left_Ship" instance=ExtResource( 3 )]
+margin_top = 317.0
+margin_bottom = 364.0
+size_flags_vertical = 6
 bar_id = 1
+bar_name = "Shields"
 
-[node name="Hull" type="ProgressBar" parent="MarginContainer/Left_Ship" groups=[
-"bar",
-]]
-margin_top = 36.0
-margin_right = 222.0
-margin_bottom = 50.0
-script = ExtResource( 2 )
+[node name="Hull" parent="MarginContainer/Left_Ship" instance=ExtResource( 3 )]
+margin_top = 551.0
+margin_bottom = 598.0
+size_flags_vertical = 6
 bar_id = 2
+bar_name = "Hull"
 
-[node name="Fuel" type="ProgressBar" parent="MarginContainer/Left_Ship" groups=[
-"bar",
-]]
-margin_top = 54.0
-margin_right = 222.0
-margin_bottom = 68.0
-script = ExtResource( 2 )
+[node name="Fuel" parent="MarginContainer/Left_Ship" instance=ExtResource( 3 )]
+margin_top = 787.0
+margin_bottom = 834.0
+size_flags_vertical = 6
 bar_id = 3
+bar_name = "Fuel"
 
 [node name="MarginContainer2" type="MarginContainer" parent="."]
-margin_left = 1293.58
-margin_top = 430.248
-margin_right = 1594.8
-margin_bottom = 642.198
+margin_left = 1172.0
+margin_top = 183.0
+margin_right = 1422.0
+margin_bottom = 906.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Right_Ship" type="VBoxContainer" parent="MarginContainer2"]
-margin_right = 301.0
-margin_bottom = 211.0
+margin_right = 250.0
+margin_bottom = 723.0
+custom_constants/separation = 25
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Galaxy" type="ProgressBar" parent="MarginContainer2/Right_Ship" groups=[
-"bar",
-]]
-margin_right = 301.0
-margin_bottom = 14.0
-script = ExtResource( 2 )
+[node name="Galaxy" parent="MarginContainer2/Right_Ship" instance=ExtResource( 3 )]
+margin_top = 88.0
+margin_bottom = 135.0
+size_flags_vertical = 6
 bar_id = 4
+bar_name = "Galaxy"
 
-[node name="Plants" type="ProgressBar" parent="MarginContainer2/Right_Ship" groups=[
-"bar",
-]]
-margin_top = 18.0
-margin_right = 301.0
-margin_bottom = 32.0
-script = ExtResource( 2 )
+[node name="Plants" parent="MarginContainer2/Right_Ship" instance=ExtResource( 3 )]
+margin_top = 337.0
+margin_bottom = 384.0
+size_flags_vertical = 6
 bar_id = 5
+bar_name = "Plants"
 
-[node name="Radiation" type="ProgressBar" parent="MarginContainer2/Right_Ship" groups=[
-"bar",
-]]
-margin_top = 36.0
-margin_right = 301.0
-margin_bottom = 50.0
-script = ExtResource( 2 )
+[node name="Radiation" parent="MarginContainer2/Right_Ship" instance=ExtResource( 3 )]
+margin_top = 587.0
+margin_bottom = 634.0
+size_flags_vertical = 6
 bar_id = 6
+bar_name = "Radiation"
