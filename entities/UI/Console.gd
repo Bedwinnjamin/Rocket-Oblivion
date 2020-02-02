@@ -5,4 +5,10 @@ func _show_message(message):
 	
 func _clear_message():
 	$Panel/RichTextLabel.text = ""
+	
+func _update_clock(message):
+	$Panel2/Label.text = message
+	
+func _clear_clock():
+	$Panel2/Label.text = ""
 
