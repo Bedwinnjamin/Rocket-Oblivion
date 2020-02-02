@@ -4,8 +4,6 @@
 [ext_resource path="res://assets/sprites/shipexternal.svg" type="Texture" id=2]
 [ext_resource path="res://assets/sprites/Ship_stuff/flames.png" type="Texture" id=3]
 
-
-
 [sub_resource type="Animation" id=1]
 resource_name = "Flameo"
 length = 4.83333
@@ -61,7 +59,6 @@ anims/Flameo2 = SubResource( 3 )
 
 [node name="Left_Engine" type="Sprite" parent="."]
 position = Vector2( -108.835, 986.392 )
-z_index = -1
 texture = ExtResource( 3 )
 flip_v = true
 vframes = 15
@@ -70,7 +67,6 @@ frame = 1
 
 [node name="Right_Engine" type="Sprite" parent="."]
 position = Vector2( 105.399, 986.392 )
-z_index = -1
 texture = ExtResource( 3 )
 flip_v = true
 vframes = 15

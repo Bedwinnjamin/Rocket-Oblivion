@@ -29,6 +29,11 @@ rotation = 1.5708
 scale = Vector2( 1.27504, 1.38117 )
 texture = ExtResource( 7 )
 
+[node name="ShipExternal" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1617.5, 482.294 )
+scale = Vector2( 0.5, 0.5 )
+float_distance = 50
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
 margin_right = 1920.0
 margin_bottom = 1080.0
@@ -77,11 +82,6 @@ margin_bottom = 640.0
 custom_fonts/font = ExtResource( 6 )
 text = "v. 0.1
 Luke Bullis, Josiah Lansford, Joel Bullis and Skyler Cash"
-
-[node name="ShipExternal" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1617.5, 482.294 )
-scale = Vector2( 0.5, 0.5 )
-float_distance = 50
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
