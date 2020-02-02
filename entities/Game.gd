@@ -32,6 +32,9 @@ func _ready():
 		error = self.connect("resource_update", b, "_update_resource")
 		b.value = resources[i]
 		i+=1
+	
+	var message = "Hello and welcome to Spaceship Simulator. Use your crew of expert astronauts to keep the ship flying with the stations on the left."
+	$UI/Console._show_message(message)
 
 func _process(_delta):
 	for i in range(0, 3):
