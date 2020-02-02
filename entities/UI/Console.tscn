@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Console.gd" type="Script" id=1]
+[ext_resource path="res://entities/UI/Console.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/console.tres" type="DynamicFont" id=2]
 
 [sub_resource type="StyleBoxFlat" id=1]
