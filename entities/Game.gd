@@ -10,6 +10,8 @@ var degrees = 0
 var float_distance = 50
 var originY
 
+var message
+
 var time_start = 0
 var time_now = 0
 var elapsed = 0
@@ -48,6 +50,10 @@ func _process(_delta):
 	for i in range(0, 3):
 		if resources[i] <= 0:
 			_lose()
+	if(Galaxy!=0):
+		if(resources[4]>=Galaxy and resources[5]>=Plants and resources[6]>=Radiation):
+			_mission_done()
+		
 	time_now = OS.get_unix_time()
 	elapsed = time_now - time_start
 	minutes = elapsed / 60
@@ -79,7 +85,7 @@ func _tutorial():
 	t.set_wait_time(5)
 	t.set_one_shot(true)
 	self.add_child(t)
-	var message = "Hello and welcome to Spaceship Simulator. Use your crew of expert astronauts to keep the ship flying with the stations on the left."
+	message = "Hello and welcome to Spaceship Simulator. Use your crew of expert astronauts to keep the ship flying with the stations on the left."
 	$Console._show_message(message)
 	t.start()
 	yield(t, "timeout")
@@ -95,7 +101,7 @@ func _tutorial():
 	yield(t, "timeout")
 	$Generate.start()
 	$Hull_Damage.start()
-	$Mission.start()
+	$Mission_Alert.start()
 	time_start = OS.get_unix_time()
 	set_process(true)
 	message = "Go!"
@@ -104,10 +110,40 @@ func _tutorial():
 	
 
 func _generate_mission():
-	galaxy = randi()%11+1
-	plants = randi()%11+1
-	
-	pass
+	Galaxy = randi()%21+2
+	Plants = randi()%21+2
+	Radiation = randi()%21+2
+	$Ship/UI/MarginContainer2/Right_Ship/Galaxy.max_value = Galaxy
+	$Ship/UI/MarginContainer2/Right_Ship/Plants.max_value = Plants
+	$Ship/UI/MarginContainer2/Right_Ship/Radiation.max_value = Radiation
+	$Console._clear_message()
+	message = "WASA wants:"
+	$Console._show_message(message)
+	message = (str(Galaxy) + " Galaxy")
+	$Console._show_message(message)
+	message = (str(Plants) + " Plants")
+	$Console._show_message(message)
+	message = (str(Radiation) + " Radiation")
+	$Console._show_message(message)
+	message = ("You have 60 seconds, chop chop!")
+	$Console._show_message(message)
+
+func _mission_done():
+	Galaxy = 0
+	Plants = 0
+	Radiation = 0
+	resources[4] = 0
+	resources[5] = 0
+	resources[6] = 0
+	$Ship/UI/MarginContainer2/Right_Ship/Galaxy.max_value = Galaxy
+	$Ship/UI/MarginContainer2/Right_Ship/Plants.max_value = Plants
+	$Ship/UI/MarginContainer2/Right_Ship/Radiation.max_value = Radiation
+	message = ("Well Done, prepare for next mission")
+	$Console._show_message(message)
+	$Mission_Alert.wait_time = 3
+	$Mission_Alert.start()
+	$Mission.stop()
+	$Mission.start()
 
 func _on_Generate_timeout():
 	# Fuel Constantly decreases
@@ -124,10 +160,18 @@ func _on_Generate_timeout():
 		
 	for i in range(0, working_stations.size()):
 		if working_stations[i] == true:
-			if resources[i] <= 99:
-				resources[i] +=1
-#			elif resources[i] < 100:
-#				resources[i] += 100-resources[i]
+			if i < 4:
+				if resources[i] <= 99:
+					resources[i] +=1
+			elif i==4:
+				if resources[i] <= Galaxy:
+					resources[i] +=1
+			elif i==5:
+				if resources[i] <= Plants:
+					resources[i] +=1
+			elif i==6:
+				if resources[i] <= Radiation:
+					resources[i] +=1
 		emit_signal("resource_update", i, resources[i])
 
 func _on_Hull_Damage_timeout():
