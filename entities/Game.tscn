@@ -21,11 +21,11 @@ zoom = Vector2( 1.1, 1.1 )
 [node name="Ship" parent="." instance=ExtResource( 1 )]
 position = Vector2( 920, 525 )
 
-[node name="UI" parent="." instance=ExtResource( 2 )]
-margin_left = 3.89606
-margin_top = -1.94812
-margin_right = 3.896
-margin_bottom = -1.94812
+[node name="UI" parent="Ship" instance=ExtResource( 2 )]
+margin_left = -916.104
+margin_top = -526.948
+margin_right = -916.104
+margin_bottom = -526.948
 mouse_filter = 2
 
 [node name="Generate" type="Timer" parent="."]
