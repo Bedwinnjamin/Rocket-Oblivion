@@ -6,6 +6,6 @@ func _ready():
 func _show_message(message):
 	$RichTextLabel.text += message + '\n'
 	
-func _clear_message(message):
+func _clear_message():
 	$RichTextLabel.text = ""
 

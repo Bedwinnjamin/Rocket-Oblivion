@@ -29,11 +29,17 @@ margin_bottom = -526.948
 mouse_filter = 2
 
 [node name="Generate" type="Timer" parent="."]
-autostart = true
 
 [node name="Hull_Damage" type="Timer" parent="."]
 wait_time = 3.2
-autostart = true
+
+[node name="Mission_Alert" type="Timer" parent="."]
+wait_time = 15.0
+one_shot = true
+
+[node name="Mission" type="Timer" parent="."]
+wait_time = 15.0
+one_shot = true
 
 [node name="PauseMenu" parent="." instance=ExtResource( 4 )]
 margin_left = -110.055
@@ -46,3 +52,5 @@ rect_scale = Vector2( 1.1106, 1.1106 )
 position = Vector2( 1511.53, 7.17496 )
 [connection signal="timeout" from="Generate" to="." method="_on_Generate_timeout"]
 [connection signal="timeout" from="Hull_Damage" to="." method="_on_Hull_Damage_timeout"]
+[connection signal="timeout" from="Mission_Alert" to="." method="_generate_mission"]
+[connection signal="timeout" from="Mission" to="." method="_generate_mission"]
