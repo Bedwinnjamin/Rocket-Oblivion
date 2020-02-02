@@ -52,10 +52,16 @@ size_flags_vertical = 3
 alignment = 1
 
 [node name="Play" parent="MarginContainer/VBoxContainer/MenuOptions" instance=ExtResource( 4 )]
-margin_top = 224.0
+margin_top = 198.0
 margin_right = 74.0
-margin_bottom = 271.0
+margin_bottom = 245.0
 scene_to_load = "res://entities/Game.tscn"
+
+[node name="Exit" parent="MarginContainer/VBoxContainer/MenuOptions" instance=ExtResource( 4 )]
+margin_top = 249.0
+margin_right = 65.0
+margin_bottom = 296.0
+text = "Exit"
 
 [node name="Label4" type="Label" parent="MarginContainer/VBoxContainer"]
 margin_top = 585.0
