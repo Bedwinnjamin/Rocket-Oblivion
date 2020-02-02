@@ -1,4 +1,4 @@
-extends Sprite
+extends Node2D
 
 export (int) var float_distance = 20
 
