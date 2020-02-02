@@ -34,11 +34,11 @@ mouse_filter = 2
 wait_time = 3.2
 
 [node name="Mission_Alert" type="Timer" parent="."]
-wait_time = 15.0
+wait_time = 7.0
 one_shot = true
 
 [node name="Mission" type="Timer" parent="."]
-wait_time = 15.0
+wait_time = 45.0
 one_shot = true
 
 [node name="PauseMenu" parent="." instance=ExtResource( 4 )]
@@ -53,4 +53,4 @@ position = Vector2( 1511.53, 7.17496 )
 [connection signal="timeout" from="Generate" to="." method="_on_Generate_timeout"]
 [connection signal="timeout" from="Hull_Damage" to="." method="_on_Hull_Damage_timeout"]
 [connection signal="timeout" from="Mission_Alert" to="." method="_generate_mission"]
-[connection signal="timeout" from="Mission" to="." method="_generate_mission"]
+[connection signal="timeout" from="Mission" to="." method="_lose"]
