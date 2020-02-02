@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://entities/ship_external/ShipExternal.tscn" type="PackedScene" id=1]
 [ext_resource path="res://entities/UI/Button.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/fonts/title.tres" type="DynamicFont" id=3]
 [ext_resource path="res://entities/GameOver.gd" type="Script" id=4]
 [ext_resource path="res://assets/music/crash.wav" type="AudioStream" id=5]
+[ext_resource path="res://assets/sprites/stars-01.svg" type="Texture" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "ShipAnimation"
@@ -34,6 +35,12 @@ tracks/1/keys = {
 
 [node name="GameOver" type="Node2D"]
 script = ExtResource( 4 )
+
+[node name="stars-01" type="Sprite" parent="."]
+position = Vector2( 935.398, 574.059 )
+rotation = 1.5708
+scale = Vector2( 1.27504, 1.38117 )
+texture = ExtResource( 6 )
 
 [node name="ShipExternal" parent="." instance=ExtResource( 1 )]
 position = Vector2( 261.374, -110.344 )
