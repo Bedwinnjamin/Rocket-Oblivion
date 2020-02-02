@@ -55,9 +55,7 @@ func _input(event):
 			get_tree().paused = true
 
 func _lose():
-	#get_tree().quit()
-	pass
-
+	get_tree().change_scene("res://entities/GameOver.tscn")
 
 func _station_working(station_id,status,crew):
 	$Console._show_message("working station " +  String(station_id))

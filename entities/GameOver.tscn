@@ -1,0 +1,82 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://entities/ship_external/ShipExternal.tscn" type="PackedScene" id=1]
+[ext_resource path="res://entities/UI/Button.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/fonts/title.tres" type="DynamicFont" id=3]
+[ext_resource path="res://entities/GameOver.gd" type="Script" id=4]
+[ext_resource path="res://assets/music/crash.wav" type="AudioStream" id=5]
+
+[sub_resource type="Animation" id=1]
+resource_name = "ShipAnimation"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 261.374, -110.344 ), Vector2( 1432.65, 1191.08 ) ]
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath(".:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 90, -0.25, 0, 0.25, 0, -90, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 5 )
+}
+
+[node name="GameOver" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="ShipExternal" parent="." instance=ExtResource( 1 )]
+position = Vector2( 261.374, -110.344 )
+rotation = 1.5708
+scale = Vector2( 0.265202, 0.265202 )
+
+[node name="AnimationPlayer3" type="AnimationPlayer" parent="ShipExternal"]
+method_call_mode = 1
+anims/ShipAnimation = SubResource( 1 )
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+margin_right = 1920.0
+margin_bottom = 1080.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 807.0
+margin_top = 450.0
+margin_right = 1113.0
+margin_bottom = 629.0
+custom_constants/separation = 50
+
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_right = 306.0
+margin_bottom = 82.0
+custom_fonts/font = ExtResource( 3 )
+text = "Game over"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainMenu" parent="CenterContainer/VBoxContainer" instance=ExtResource( 2 )]
+margin_left = 54.0
+margin_top = 132.0
+margin_right = 252.0
+margin_bottom = 179.0
+size_flags_horizontal = 4
+text = "Main Menu"
+scene_to_load = "res://entities/MainMenu.tscn"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 5 )
+autoplay = true
