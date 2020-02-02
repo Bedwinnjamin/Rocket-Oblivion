@@ -10,6 +10,16 @@ var degrees = 0
 var float_distance = 50
 var originY
 
+var time_start = 0
+var time_now = 0
+var elapsed = 0
+var minutes = 0
+var seconds = 0
+
+var Galaxy = 0
+var Plants = 0
+var Radiation = 0
+
 var Oxygen = 0
 var Shields = 1
 var Hull = 2
@@ -32,14 +42,16 @@ func _ready():
 		error = self.connect("resource_update", b, "_update_resource")
 		b.value = resources[i]
 		i+=1
-	
-	var message = "Hello and welcome to Spaceship Simulator. Use your crew of expert astronauts to keep the ship flying with the stations on the left."
-	$Console._show_message(message)
+	_tutorial()
 
 func _process(_delta):
 	for i in range(0, 3):
-		if resources[i] == 0:
+		if resources[i] <= 0:
 			_lose()
+	time_now = OS.get_unix_time()
+	elapsed = time_now - time_start
+	minutes = elapsed / 60
+	seconds = elapsed % 60
 
 func _physics_process(_delta):
 	var sine_factor = sin(degrees/180.0 * PI)
@@ -60,9 +72,44 @@ func _lose():
 
 
 func _station_working(station_id,status,crew):
-	$Console._show_message("working station " +  String(station_id))
+	#$Console._show_message("working station " +  String(station_id))
 	working_stations[station_id] = status
 	$JukeBox.insert_coin(station_id,status,crew)
+
+func _tutorial():
+	var t = Timer.new()
+	t.set_wait_time(5)
+	t.set_one_shot(true)
+	self.add_child(t)
+	var message = "Hello and welcome to Spaceship Simulator. Use your crew of expert astronauts to keep the ship flying with the stations on the left."
+	$Console._show_message(message)
+	t.start()
+	yield(t, "timeout")
+	message = "Click on one crew, then click on one of the seven stations to have them work there"
+	$Console._clear_message()
+	$Console._show_message(message)
+	t.start()
+	yield(t, "timeout")
+	message = "Don't let your ships resources hit 0!"
+	$Console._clear_message()
+	$Console._show_message(message)
+	t.start()
+	yield(t, "timeout")
+	$Generate.start()
+	$Hull_Damage.start()
+	$Mission.start()
+	time_start = OS.get_unix_time()
+	set_process(true)
+	message = "Go!"
+	$Console._clear_message()
+	$Console._show_message(message)
+	
+
+func _generate_mission():
+	galaxy = randi()%11+1
+	plants = randi()%11+1
+	
+	pass
 
 func _on_Generate_timeout():
 	# Fuel Constantly decreases
