@@ -27,10 +27,17 @@ func _ready():
 		b.value = resources[i]
 		i+=1
 
+func _process(delta):
+	for i in range(0, 3):
+		if resources[i] == 0:
+			_lose()
+
+func _lose():
+	pass
+
 
 func _station_working(station_id,status):
 	working_stations[station_id] = status
-
 
 func _on_Generate_timeout():
 	# Fuel Constantly decreases
@@ -39,7 +46,7 @@ func _on_Generate_timeout():
 	# Oxygen constantly decreases, worse if hull is low
 	if !working_stations[Oxygen]:
 		var temp = resources[Hull]
-		print(oxygen_drain/(temp/200.00))
+		
 		resources[Oxygen] -= (oxygen_drain/(temp/200.00))
 		
 	for i in range(0, working_stations.size()):

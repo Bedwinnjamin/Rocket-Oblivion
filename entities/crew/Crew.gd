@@ -4,7 +4,7 @@ signal start_work
 signal stop_work
 signal selected
 
-export (int) var crewmember
+export (int) var crew_id
 
 var speed = 1
 var station = -1

@@ -8,7 +8,10 @@
 script = ExtResource( 3 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( -108.93, -16.2582 )
 anchor_mode = 0
+current = true
+zoom = Vector2( 1.1, 1.1 )
 
 [node name="UI" parent="." instance=ExtResource( 2 )]
 margin_left = 3.89606

@@ -8,6 +8,8 @@ var error
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$AnimationPlayer.play("Flameo")
+	$AnimationPlayer2.play("Flameo2")
 	# Get arrays of crew and station nodes in the Ship
 	var crews = get_tree().get_nodes_in_group("crew")
 	var stations = get_tree().get_nodes_in_group("station")
@@ -27,17 +29,21 @@ func _selected(current_node):
 	print(current_node)
 	if current_node.is_in_group("crew"):
 		selected_crew = current_node
-		print("Selected Crew: " + str(current_node.crewmember))
+		print("Selected Crew: " + str(current_node.crew_id))
 	elif current_node.is_in_group("station"):
 		if selected_crew == null:
 			pass
 		elif selected_crew.station != current_node.station_id:
-			selected_crew._go_to_station(current_node.position, current_node.station_id)
-			selected_crew = null
-		else:
-			pass
-	else:
-		pass
+			if (!_station_used(current_node.station_id)):
+				selected_crew._go_to_station(current_node.position, current_node.station_id)
+				crew_stations[selected_crew.crew_id] = current_node.station_id
+				selected_crew = null
+
+func _station_used(station_id):
+	for x in crew_stations:
+		if x == station_id:
+			return true
+	return false
 
 # Move an Area 2D to where the mouse is and determine if you're not clicking an object
 func _input(event):
