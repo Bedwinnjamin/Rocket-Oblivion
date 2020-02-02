@@ -3,7 +3,7 @@ extends Node
 signal resource_update
 
 var working_stations = [false,false,false,false,false,false,false]
-var resources = [50.0,50.0,50.0,100.0,0.0,0.0,0.0]
+var resources = [75.0,100.0,100.0,100.0,0.0,0.0,0.0]
 var error
 
 var degrees = 0
@@ -43,7 +43,7 @@ func _process(_delta):
 
 func _physics_process(_delta):
 	var sine_factor = sin(degrees/180.0 * PI)
-	$Camera2D.position[1] = originY + (sine_factor * float_distance)
+	$Ship.position[1] = originY + (sine_factor * float_distance)+525
 	#$Stars.position[1] = (originY + (sine_factor * float_distance))+550
 	degrees = (degrees + 1) % 360
 
@@ -67,6 +67,9 @@ func _on_Generate_timeout():
 	# Fuel Constantly decreases
 	if !working_stations[Fuel]:
 		resources[Fuel] -= fuel_drain
+	# Shields constantly decreases
+	if !working_stations[Shields]:
+		resources[Shields] -= fuel_drain
 	# Oxygen constantly decreases, worse if hull is low
 	if !working_stations[Oxygen]:
 		var temp = resources[Hull]
@@ -83,3 +86,5 @@ func _on_Generate_timeout():
 
 func _on_Hull_Damage_timeout():
 	resources[Hull] -= (hull_damage-(hull_damage*(resources[Shields]/100.0)))
+	if(resources[Hull] <= 0):
+		_lose()

@@ -12,13 +12,13 @@ script = ExtResource( 3 )
 [node name="JukeBox" parent="." instance=ExtResource( 5 )]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( -108.93, -16.2582 )
+position = Vector2( -111.322, -23.4332 )
 anchor_mode = 0
 current = true
 zoom = Vector2( 1.1, 1.1 )
 
 [node name="Ship" parent="." instance=ExtResource( 1 )]
-position = Vector2( 918.63, 526.939 )
+position = Vector2( 920, 525 )
 
 [node name="UI" parent="." instance=ExtResource( 2 )]
 margin_left = 3.89606
