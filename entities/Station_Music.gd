@@ -22,10 +22,10 @@ func _switch_music(crew_id):
 	track_position = self.get_playback_position()
 	self.set_stream(songs[crew_id])
 	self.play(track_position)
-	tween_out.interpolate_property(self, "volume_db", -80, 0, transition_duration, transition_type, Tween.EASE_IN, 0)
+	tween_out.interpolate_property(self, "volume_db", -80, -20, transition_duration, transition_type, Tween.EASE_IN, 0)
 	tween_out.start()
 
 func _turn_off():
 	# tween music volume down to 0
-	tween_out.interpolate_property(self, "volume_db", 0, -80, transition_duration, transition_type, Tween.EASE_IN, 0)
+	tween_out.interpolate_property(self, "volume_db", self.volume_db, -80, transition_duration, transition_type, Tween.EASE_IN, 0)
 	tween_out.start()

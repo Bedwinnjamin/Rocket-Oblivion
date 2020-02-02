@@ -97,18 +97,18 @@ texture = ExtResource( 6 )
 [node name="Stations" type="Node2D" parent="."]
 
 [node name="Station0" parent="Stations" instance=ExtResource( 4 )]
-position = Vector2( -118, 384 )
+position = Vector2( -118, -345 )
 
 [node name="Station1" parent="Stations" instance=ExtResource( 4 )]
-position = Vector2( -118, 135 )
+position = Vector2( -118, -106 )
 station_id = 1
 
 [node name="Station2" parent="Stations" instance=ExtResource( 4 )]
-position = Vector2( -118, -106 )
+position = Vector2( -118, 135 )
 station_id = 2
 
 [node name="Station3" parent="Stations" instance=ExtResource( 4 )]
-position = Vector2( -118, -345 )
+position = Vector2( -118, 384 )
 station_id = 3
 
 [node name="Station4" parent="Stations" instance=ExtResource( 1 )]
