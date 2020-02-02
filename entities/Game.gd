@@ -6,6 +6,10 @@ var working_stations = [false,false,false,false,false,false,false]
 var resources = [50.0,50.0,50.0,100.0,0.0,0.0,0.0]
 var error
 
+var degrees = 0
+var float_distance = 50
+var originY
+
 var Oxygen = 0
 var Shields = 1
 var Hull = 2
@@ -17,6 +21,8 @@ var hull_damage = 10
 
 
 func _ready():
+	originY = $Camera2D.position[1]
+	
 	var stations = get_tree().get_nodes_in_group("station")
 	for s in stations:
 		s.connect("working_status", self, "_station_working")
@@ -27,12 +33,25 @@ func _ready():
 		b.value = resources[i]
 		i+=1
 
-func _process(delta):
+func _process(_delta):
 	for i in range(0, 3):
 		if resources[i] == 0:
 			_lose()
 
+func _physics_process(_delta):
+	var sine_factor = sin(degrees/180.0 * PI)
+	$Camera2D.position[1] = originY + (sine_factor * float_distance)
+	$Stars.position[1] = (originY + (sine_factor * float_distance))+550
+	degrees = (degrees + 1) % 360
+
+#Input handler, listen for ESC to exit app
+func _input(event):
+	if(event.is_pressed()):
+		if(Input.is_key_pressed(KEY_ESCAPE)):
+			get_tree().quit()
+
 func _lose():
+	#get_tree().quit()
 	pass
 
 

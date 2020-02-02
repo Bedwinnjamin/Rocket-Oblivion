@@ -1,11 +1,15 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://entities/station/Station.tscn" type="PackedScene" id=1]
-[ext_resource path="res://entities/crew/Crew.tscn" type="PackedScene" id=2]
+[ext_resource path="res://entities/station/Right_Station.tscn" type="PackedScene" id=1]
+[ext_resource path="res://entities/crew/Green_Crew.tscn" type="PackedScene" id=2]
 [ext_resource path="res://entities/ship/Ship.gd" type="Script" id=3]
 [ext_resource path="res://entities/station/Left_Station.tscn" type="PackedScene" id=4]
-[ext_resource path="res://assets/shipexternal.svg" type="Texture" id=5]
-[ext_resource path="res://assets/sprites/flames.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/shipexternal.svg" type="Texture" id=5]
+[ext_resource path="res://assets/sprites/Ship_stuff/ladder.svg" type="Texture" id=6]
+[ext_resource path="res://assets/sprites/Ship_stuff/flames.png" type="Texture" id=7]
+[ext_resource path="res://assets/sprites/Ship_stuff/InsideShip-01.svg" type="Texture" id=8]
+[ext_resource path="res://entities/crew/Red_Crew.tscn" type="PackedScene" id=9]
+[ext_resource path="res://entities/crew/Blue_Crew.tscn" type="PackedScene" id=10]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Flameo"
@@ -49,8 +53,6 @@ tracks/0/keys = {
 "values": [ 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50 ]
 }
 
-[sub_resource type="CubeMesh" id=4]
-
 [node name="Ship" type="Node2D"]
 script = ExtResource( 3 )
 
@@ -82,56 +84,54 @@ frame = 51
 position = Vector2( 4, 0 )
 texture = ExtResource( 5 )
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
-modulate = Color( 0.568627, 0.188235, 0.188235, 1 )
-scale = Vector2( 200, 400 )
-mesh = SubResource( 4 )
+[node name="InsideShip-01" type="Sprite" parent="."]
+position = Vector2( 0.633026, 39.8191 )
+scale = Vector2( 1, 1.09468 )
+texture = ExtResource( 8 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 0, 42.4989 )
+scale = Vector2( 1.1, 1.24155 )
+texture = ExtResource( 6 )
 
 [node name="Stations" type="Node2D" parent="."]
 
 [node name="Station0" parent="Stations" instance=ExtResource( 4 )]
+position = Vector2( -118, 384 )
 
 [node name="Station1" parent="Stations" instance=ExtResource( 4 )]
+position = Vector2( -118, 135 )
+station_id = 1
 
 [node name="Station2" parent="Stations" instance=ExtResource( 4 )]
+position = Vector2( -118, -106 )
+station_id = 2
 
 [node name="Station3" parent="Stations" instance=ExtResource( 4 )]
+position = Vector2( -118, -345 )
+station_id = 3
 
 [node name="Station4" parent="Stations" instance=ExtResource( 1 )]
-position = Vector2( 145, -275 )
+position = Vector2( 117, -234 )
 station_id = 4
 
 [node name="Station5" parent="Stations" instance=ExtResource( 1 )]
-position = Vector2( 145, -30 )
+position = Vector2( 117, 24 )
 station_id = 5
 
 [node name="Station6" parent="Stations" instance=ExtResource( 1 )]
-position = Vector2( 146.432, 238.568 )
+position = Vector2( 117, 268 )
 station_id = 6
 
 [node name="Crew_Members" type="Node2D" parent="."]
 
-[node name="Crew0" parent="Crew_Members" instance=ExtResource( 2 )]
-position = Vector2( 133.597, -35.1549 )
+[node name="Crew0" parent="Crew_Members" instance=ExtResource( 9 )]
+position = Vector2( -100, 384 )
 
 [node name="Crew1" parent="Crew_Members" instance=ExtResource( 2 )]
-position = Vector2( -130.942, -161.079 )
+position = Vector2( -100, -345 )
 crew_id = 1
 
-[node name="Crew2" parent="Crew_Members" instance=ExtResource( 2 )]
-position = Vector2( -133.754, 375.355 )
+[node name="Crew2" parent="Crew_Members" instance=ExtResource( 10 )]
+position = Vector2( 100, 24 )
 crew_id = 2
-
-[editable path="Stations/Station0"]
-
-[editable path="Stations/Station1"]
-
-[editable path="Stations/Station2"]
-
-[editable path="Stations/Station3"]
-
-[editable path="Crew_Members/Crew0"]
-
-[editable path="Crew_Members/Crew1"]
-
-[editable path="Crew_Members/Crew2"]

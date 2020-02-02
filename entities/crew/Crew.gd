@@ -34,13 +34,35 @@ func _physics_process(_delta):
 	if (is_moving):
 		if (self.position[1] != destY):
 			if self.position[0] != 0:
+				if (self.position[0] > 0):
+					$Walk.flip_h = true
+				else:
+					$Walk.flip_h = false
+				$Stand.visible = false
+				$Walk.visible = true
+				$Climb.visible = false
 				_move_toward_ladder()
 			else:
+				$Stand.visible = false
+				$Walk.visible = false
+				$Climb.visible = true
 				_move_toward_floor()
 		elif (self.position[0] != destX):
+			if (destX < 0):
+				$Walk.flip_h = true
+				$Stand.flip_h = true
+			else:
+				$Walk.flip_h = false
+				$Stand.flip_h = false
+			$Stand.visible = false
+			$Walk.visible = true
+			$Climb.visible = false
 			_move_toward_dest()
 		else:
 			is_moving = false
+			$Stand.visible = true
+			$Walk.visible = false
+			$Climb.visible = false
 			emit_signal("start_work", station)
 			
 	pass
