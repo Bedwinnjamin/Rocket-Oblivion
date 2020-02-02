@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Sh 2.ogg-20b17e2c8a4968b940321065d1d5c14a.oggstr"
+
+[deps]
+
+source_file="res://assets/music/Sh 2.ogg"
+dest_files=[ "res://.import/Sh 2.ogg-20b17e2c8a4968b940321065d1d5c14a.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

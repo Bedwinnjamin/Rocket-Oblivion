@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Gal 2.ogg-6e13eac553449cdbb5dc074e574ec7b5.oggstr"
+
+[deps]
+
+source_file="res://assets/music/Gal 2.ogg"
+dest_files=[ "res://.import/Gal 2.ogg-6e13eac553449cdbb5dc074e574ec7b5.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

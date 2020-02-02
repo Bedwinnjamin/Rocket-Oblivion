@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Hull 3.ogg-9587f06f41f7f7f4dc60366a5b921ef8.oggstr"
+
+[deps]
+
+source_file="res://assets/music/Hull 3.ogg"
+dest_files=[ "res://.import/Hull 3.ogg-9587f06f41f7f7f4dc60366a5b921ef8.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

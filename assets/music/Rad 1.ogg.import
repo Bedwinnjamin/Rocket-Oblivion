@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Rad 1.ogg-843c70afbcfeb75c31e036756e454572.oggstr"
+
+[deps]
+
+source_file="res://assets/music/Rad 1.ogg"
+dest_files=[ "res://.import/Rad 1.ogg-843c70afbcfeb75c31e036756e454572.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
