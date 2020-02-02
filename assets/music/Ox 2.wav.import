@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Ox 2.wav-0b8edeb3b8b14642aa8a18a5d8326aac.sample"
+
+[deps]
+
+source_file="res://assets/music/Ox 2.wav"
+dest_files=[ "res://.import/Ox 2.wav-0b8edeb3b8b14642aa8a18a5d8326aac.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

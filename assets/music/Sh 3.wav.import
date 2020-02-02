@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Sh 3.wav-26e71c5c9ae60f1572c9fbc185972291.sample"
+
+[deps]
+
+source_file="res://assets/music/Sh 3.wav"
+dest_files=[ "res://.import/Sh 3.wav-26e71c5c9ae60f1572c9fbc185972291.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
