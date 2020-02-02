@@ -33,7 +33,7 @@ func _station_working(station_id,status):
 
 
 func _on_Generate_timeout():
-		# Fuel Constantly decreases
+	# Fuel Constantly decreases
 	if !working_stations[Fuel]:
 		resources[Fuel] -= fuel_drain
 	# Oxygen constantly decreases, worse if hull is low
@@ -41,7 +41,7 @@ func _on_Generate_timeout():
 		var temp = resources[Hull]
 		print(oxygen_drain/(temp/200.00))
 		resources[Oxygen] -= (oxygen_drain/(temp/200.00))
-	
+		
 	for i in range(0, working_stations.size()):
 		if working_stations[i] == true:
 			if resources[i] <= 99:
