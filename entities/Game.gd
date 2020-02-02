@@ -41,7 +41,7 @@ func _process(_delta):
 func _physics_process(_delta):
 	var sine_factor = sin(degrees/180.0 * PI)
 	$Camera2D.position[1] = originY + (sine_factor * float_distance)
-	$Stars.position[1] = (originY + (sine_factor * float_distance))+550
+	#$Stars.position[1] = (originY + (sine_factor * float_distance))+550
 	degrees = (degrees + 1) % 360
 
 #Input handler, listen for ESC to exit app
