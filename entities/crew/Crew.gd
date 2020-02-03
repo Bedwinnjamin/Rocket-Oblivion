@@ -12,10 +12,7 @@ var is_moving = false
 var destX
 var destY
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
-
+#
 func _go_to_station(station_position, station_id):
 	emit_signal("stop_work", station, crew_id)
 	station = station_id
@@ -24,6 +21,7 @@ func _go_to_station(station_position, station_id):
 	is_moving = true
 	#print(station_position)
 
+#
 func _physics_process(_delta):
 	if (is_moving):
 		if (self.position[1] != destY):
@@ -58,9 +56,8 @@ func _physics_process(_delta):
 			$Walk.hide()
 			$Climb.hide()
 			emit_signal("start_work", station, crew_id)
-			
-	pass
 
+#
 func _move_toward_ladder():
 	if self.position[0] > speed:
 		self.position[0] -= speed
@@ -68,7 +65,8 @@ func _move_toward_ladder():
 		self.position[0] += speed
 	else:
 		self.position[0] = 0
-	
+
+#
 func _move_toward_floor():
 	if self.position[1] > destY + speed:
 		self.position[1] -= speed
@@ -77,6 +75,7 @@ func _move_toward_floor():
 	else:
 		self.position[1] = destY
 
+#
 func _move_toward_dest():
 	if self.position[0] > destX + speed:
 		self.position[0] -= speed
@@ -89,4 +88,3 @@ func _move_toward_dest():
 func _on_Area2D_input_event(_viewport, event, _shape_idx):
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:
 		emit_signal("selected", self)
-		print("Crew Selected")
